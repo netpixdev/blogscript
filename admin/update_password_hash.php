@@ -1,7 +1,7 @@
 <?php
 require_once 'db_connect.php';  // "admin/" kısmını kaldırdık
 
-$current_password = 'uRKB7610!'; // Mevcut şifreniz
+$current_password = 'yourpasswordhere'; // Mevcut şifreniz
 $hashed_password = password_hash($current_password, PASSWORD_DEFAULT);
 
 $sql = "UPDATE admin_users SET password = ? WHERE id = 1"; // id = 1 varsayımı ile

@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "netpixdev_db";
+$dbname = "yourdb";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
