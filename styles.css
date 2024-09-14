@@ -1,0 +1,448 @@
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes vibrate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes steam {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    50% { opacity: 1; }
+    100% {
+        transform: translateY(-10px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes shine {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+
+.animated-bg-main {
+    background: linear-gradient(270deg, #000000, #111111, #000000);
+    background-size: 600% 600%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+.chat-box:hover .floating-chat {
+    animation: float 2s ease-in-out infinite;
+}
+
+.music-box:hover .vibrating-icon {
+    animation: vibrate 0.5s ease-in-out infinite;
+}
+
+.menu-item {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #3b82f6, #60a5fa);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.menu-item:hover::before {
+    opacity: 0.1;
+}
+
+.menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #3b82f6;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+}
+
+.menu-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu-item:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+
+
+
+.project-box:hover .pulsing-icon {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.coffee-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.coffee-button::before,
+.coffee-button::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    width: 6px;
+    height: 6px;
+    background: black;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.coffee-button::before {
+    left: 10px;
+    animation: steam 2s infinite;
+}
+
+.coffee-button::after {
+    left: 20px;
+    animation: steam 2s infinite 0.3s;
+}
+
+.coffee-icon {
+    transition: transform 0.3s ease;
+}
+
+.coffee-button:hover .coffee-icon {
+    transform: rotate(-10deg);
+}
+
+.telegram-icon {
+    margin-right: 8px;
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #141414, #000000, #0c0c0c, #161616);
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+    opacity: 0.3;
+}
+
+.project-card img {
+    z-index: 2;
+    position: relative;
+}
+
+.project-card .absolute {
+    z-index: 3;
+}
+
+.project-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.project-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.icon-container {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    z-index: 2;
+}
+
+.project-info {
+    z-index: 2;
+    text-align: center;
+}
+
+.project-title {
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.more-button {
+    transition: all 0.3s ease;
+}
+
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.content-width {
+    max-width: 1000px; /* Önceki değer 1200px idi, şimdi daraltıyoruz */
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.ai-cursor-button {
+    background: linear-gradient(135deg, #000000, #141414);
+}
+
+.ai-cursor-button:hover {
+    background: linear-gradient(135deg, #1b1b1b, #000000);
+}
+
+.ai-cursor-icon {
+    color: #ffd700;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.project-card {
+    background: linear-gradient(135deg, #000000, #141414);
+    transition: all 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    background: linear-gradient(135deg, #1b1b1b, #000000);
+}
+
+.project-card:hover .vibrating-icon {
+    animation: vibrate 0.5s ease-in-out infinite;
+}
+
+.custom-bg {
+    background: linear-gradient(135deg, #000000, #141414);
+    transition: all 0.3s ease-in-out;
+}
+
+.custom-bg:hover {
+    background: linear-gradient(135deg, #1b1b1b, #000000);
+}
+
+.more-button {
+    background: linear-gradient(135deg, #000000, #141414);
+}
+
+.more-button:hover {
+    background: linear-gradient(135deg, #1b1b1b, #000000);
+}
+
+@media (max-width: 640px) {
+    .content-width {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Flex sütun düzeni */
+@media (min-width: 1024px) {
+    .flex-col.lg\:flex-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flex-col.lg\:flex-row > div {
+        flex: 1;
+    }
+
+    .flex-col.lg\:flex-row > div:first-child {
+        margin-right: 1rem;
+    }
+}
+
+/* Özel arka plan */
+.custom-bg {
+    background-color: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.custom-bg:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 1023px) {
+    .flex-col > div {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Yetenek kutucukları için stil */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    
+}
+
+.skill-tag {
+    display: inline-block;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobil görünüm için içeriden hizalama */
+@media (max-width: 640px) {
+    .skills-container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+/* Ana içerik genişliği */
+.content-width {
+    max-width: 1000px; /* Önceki değer 1200px idi, şimdi daraltıyoruz */
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Orta boyutlu ekranlar için ek daraltma */
+@media (max-width: 1024px) {
+    .content-width {
+        max-width: 90%;
+    }
+}
+
+/* Küçük ekranlar için tam genişlik */
+@media (max-width: 640px) {
+    .content-width {
+        max-width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Ana flex container için düzenleme */
+.flex-col.lg\:flex-row {
+    gap: 1.5rem; /* Sütunlar arası boşluk ekler */
+}
+
+/* Sol ve sağ sütunların genişliklerini ayarla */
+@media (min-width: 1024px) {
+    .flex-col.lg\:flex-row > div:first-child {
+        width: 60%; /* Sol sütun genişliği */
+    }
+
+    .flex-col.lg\:flex-row > div:last-child {
+        width: 40%; /* Sağ sütun genişliği */
+    }
+}
+
+/* Profil kartı içeriği için stil */
+.profile-content {
+    padding: 0 2rem; /* px-8'e eşdeğer */
+}
+
+/* Profil bilgisi için üst boşluk */
+.profile-info {
+    margin-top: 60px;
+}
+
+/* Yetenek kutucukları için stil */
+.skills-container {
+    max-width: calc(100% - 4rem); /* 100% eksi sol ve sağ padding (2rem + 2rem) */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobil görünüm için düzenleme */
+@media (max-width: 640px) {
+    .profile-content {
+        padding: 0 1rem; /* Mobilde daha az padding */
+    }
+
+    .skills-container {
+        max-width: calc(100% - 2rem); /* Mobilde daha az padding olduğu için güncellendi */
+    }
+
+    .profile-info {
+        margin-top: 40px !important; /* Mobilde daha az üst boşluk */
+    }
+}
+
+/* Avatar için stil */
+.avatar {
+    margin-bottom: 2rem; /* 32px alt boşluk */
+}
+
+/* Mobil görünüm için düzenleme */
+@media (max-width: 640px) {
+    .avatar {
+        margin-bottom: 1.5rem; /* Mobilde daha az alt boşluk */
+    }
+}
+
